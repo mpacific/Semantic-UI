@@ -147,11 +147,11 @@ if(currentConfig && manager.name === 'NPM') {
       ;
 
       console.info('Update complete! Run "\x1b[92mgulp build\x1b[0m" to rebuild dist/ files.');
-
       return;
     }
     else {
       console.log('Current version of Semantic UI already installed');
+      callback();
       return;
     }
 
@@ -408,7 +408,7 @@ gulp.task('create install files', function(callback) {
 
   });
 
-  runSequence(
+  return runSequence(
     'create theme.config',
     'create semantic.json',
     callback
@@ -449,7 +449,7 @@ gulp.task('clean up install', function() {
 
 });
 
-runSequence(
+return runSequence(
   'run setup',
   'create install files',
   'clean up install',
