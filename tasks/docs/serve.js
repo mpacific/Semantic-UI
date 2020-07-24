@@ -137,7 +137,7 @@ module.exports = function () {
       if(isConfig) {
         // console.info('Rebuilding all files');
         // cant rebuild paths are wrong
-        // gulp.parallel('build-docs');
+        // return gulp.parallel('build-docs');
         return;
       }
       else if(isPackagedTheme) {
@@ -184,7 +184,7 @@ module.exports = function () {
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.parallel('package uncompressed docs css');
+            return gulp.parallel('package uncompressed docs css');
           })
         ;
 
@@ -197,7 +197,7 @@ module.exports = function () {
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.parallel('package compressed docs css');
+            return gulp.parallel('package compressed docs css');
           })
         ;
 
@@ -226,8 +226,8 @@ module.exports = function () {
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {
-          gulp.parallel('package compressed docs js');
-          gulp.parallel('package uncompressed docs js');
+          return gulp.parallel('package compressed docs js');
+          return gulp.parallel('package uncompressed docs js');
         })
       ;
     })

@@ -68,8 +68,8 @@ module.exports = function(callback) {
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.parallel('package compressed js');
-      gulp.parallel('package uncompressed js');
+      return gulp.parallel('package compressed js');
+      return gulp.parallel('package uncompressed js');
       callback();
     })
   ;

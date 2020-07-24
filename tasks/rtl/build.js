@@ -86,7 +86,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.parallel('package uncompressed rtl css');
+      return gulp.parallel('package uncompressed rtl css');
     })
   ;
 
@@ -101,7 +101,7 @@ module.exports = function(callback) {
     .pipe(print(log.created))
     .on('end', function() {
       callback();
-      gulp.parallel('package compressed rtl css');
+      return gulp.parallel('package compressed rtl css');
     })
   ;
 
@@ -124,8 +124,8 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.parallel('package compressed js');
-      gulp.parallel('package uncompressed js');
+      return gulp.parallel('package compressed js');
+      return gulp.parallel('package uncompressed js');
     })
   ;
 

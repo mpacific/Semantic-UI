@@ -440,7 +440,7 @@ gulp.task('clean up install', function() {
           del(install.setupFiles);
         }
         if(answers.build == 'yes') {
-          gulp.parallel('build');
+          return gulp.parallel('build');
         }
       }))
     ;

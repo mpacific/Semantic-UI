@@ -34,8 +34,7 @@ module.exports = function(callback) {
 
   // check for right-to-left (RTL) language
   if(config.rtl === true || config.rtl === 'Yes') {
-    gulp.parallel('build-rtl');
-    return;
+    return gulp.parallel('build-rtl');
   }
 
   if(config.rtl == 'both') {

@@ -102,7 +102,7 @@ module.exports = function(callback) {
       if(isConfig) {
         console.log('Change detected in theme config');
         // cant tell which theme was changed in theme.config, rebuild all
-        gulp.parallel('build');
+        return gulp.parallel('build');
       }
       else if(isPackagedTheme) {
         console.log('Change detected in packaged theme');
@@ -150,7 +150,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.parallel('package uncompressed rtl css');
+            return gulp.parallel('package uncompressed rtl css');
           })
         ;
 
@@ -163,7 +163,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.parallel('package compressed rtl css');
+            return gulp.parallel('package compressed rtl css');
           })
         ;
 
@@ -193,8 +193,8 @@ module.exports = function(callback) {
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {
-          gulp.parallel('package compressed js');
-          gulp.parallel('package uncompressed js');
+          return gulp.parallel('package compressed js');
+          return gulp.parallel('package uncompressed js');
         })
       ;
     })
