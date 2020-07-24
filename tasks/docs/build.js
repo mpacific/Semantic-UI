@@ -141,7 +141,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package uncompressed docs css');
+      gulp.parallel('package uncompressed docs css');
     })
   ;
 
@@ -157,7 +157,7 @@ module.exports = function(callback) {
     .pipe(print(log.created))
     .on('end', function() {
       callback();
-      gulp.start('package compressed docs css');
+      gulp.parallel('package compressed docs css');
     })
   ;
 
@@ -181,8 +181,8 @@ module.exports = function(callback) {
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package compressed docs js');
-      gulp.start('package uncompressed docs js');
+      gulp.parallel('package compressed docs js');
+      gulp.parallel('package uncompressed docs js');
     })
   ;
 

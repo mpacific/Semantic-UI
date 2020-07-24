@@ -430,7 +430,7 @@ gulp.task('clean up install', function() {
 
   // If auto-install is switched on, we skip the configuration section and simply build the dependencies
   if(install.shouldAutoInstall()) {
-    return gulp.start('build');
+    return gulp.parallel('build');
   }
   else {
     return gulp
@@ -440,7 +440,7 @@ gulp.task('clean up install', function() {
           del(install.setupFiles);
         }
         if(answers.build == 'yes') {
-          gulp.start('build');
+          gulp.parallel('build');
         }
       }))
     ;

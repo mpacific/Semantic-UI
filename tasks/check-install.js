@@ -16,11 +16,11 @@ module.exports = function() {
   setTimeout(function() {
     if( !install.isSetup() ) {
       console.log('Starting install...');
-      gulp.start('install');
+      gulp.parallel('install');
       return;
     }
     else {
-      gulp.start('watch');
+      gulp.parallel('watch');
     }
   }, 50); // Delay to allow console.clear to remove messages from check event
 
