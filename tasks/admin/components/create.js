@@ -310,7 +310,7 @@ module.exports = function(callback) {
 
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
-        runSequence([
+        return runSequence([
           task.repo,
           task.npm,
           task.bower,
@@ -327,5 +327,5 @@ module.exports = function(callback) {
     })(component);
   }
 
-  runSequence(tasks, callback);
+  return runSequence(tasks, callback);
 };

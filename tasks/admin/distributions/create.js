@@ -215,5 +215,5 @@ module.exports = function(callback) {
 
     })(distribution);
   }
-  runSequence(tasks, callback);
+  return runSequence(tasks, callback);
 };
