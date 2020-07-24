@@ -22,7 +22,7 @@ var
   del             = require('del'),
   fs              = require('fs'),
   path            = require('path'),
-  runSequence     = require('run-sequence'),
+  runSequence     = require('gulp4-run-sequence'),
 
   // admin dependencies
   concatFileNames = require('gulp-concat-filenames'),

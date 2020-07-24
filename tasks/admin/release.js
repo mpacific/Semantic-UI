@@ -11,7 +11,7 @@
 */
 
 var
-  runSequence = require('run-sequence')
+  runSequence = require('gulp4-run-sequence')
 ;
 
 /* Release All */

@@ -21,7 +21,7 @@ var
   print        = require('gulp-print').default,
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
-  runSequence  = require('run-sequence'),
+  runSequence  = require('gulp4-run-sequence'),
 
   // config
   config       = require('../config/user'),

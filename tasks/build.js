@@ -5,7 +5,7 @@
 var
   // dependencies
   gulp         = require('gulp-help')(require('gulp')),
-  runSequence  = require('run-sequence'),
+  runSequence  = require('gulp4-run-sequence'),
 
   // config
   config       = require('./config/user'),
@@ -34,7 +34,7 @@ module.exports = function(callback) {
 
   // check for right-to-left (RTL) language
   if(config.rtl === true || config.rtl === 'Yes') {
-    gulp.start('build-rtl');
+    gulp.parallel('build-rtl');
     return;
   }
 

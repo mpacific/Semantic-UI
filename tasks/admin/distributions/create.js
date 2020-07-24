@@ -17,7 +17,7 @@ var
   del             = require('del'),
   fs              = require('fs'),
   path            = require('path'),
-  runSequence     = require('run-sequence'),
+  runSequence     = require('gulp4-run-sequence'),
   mergeStream     = require('merge-stream'),
 
   // admin dependencies
