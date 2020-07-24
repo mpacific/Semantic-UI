@@ -147,6 +147,7 @@ if(currentConfig && manager.name === 'NPM') {
       ;
 
       console.info('Update complete! Run "\x1b[92mgulp build\x1b[0m" to rebuild dist/ files.');
+      callback();
       return;
     }
     else {
